@@ -107,6 +107,26 @@ const Admin = () => {
       .catch((err) => {
         setError('Error creating user, please try again.');
       });
+      
+      fetch(`http://localhost:3001/users`, {
+        method: 'POST',
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setUsers([...users, data]); // update the user list
+          setEmail('');
+          setPassword('');
+        })
+        .catch((err) => {
+          setError('Error creating user, please try again.');
+        });
   };
 
   // handle logout
