@@ -5,14 +5,13 @@ const Home = () => {
 
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  console.log(apiUrl);
-
   const [coupons, setCoupons] = useState([]);
   const [couponCode, setCouponCode] = useState('');
+  const [newPrice, setNewPrice] = useState(100); // Default price starts at 100
   const [discountApplied, setDiscountApplied] = useState(false);
   const navigate = useNavigate();
 
-  //fetch all the coupons
+  // Fetch all the coupons
   useEffect(() => {
     fetch(`${apiUrl}/coupons`)
       .then(response => response.json())
@@ -20,7 +19,7 @@ const Home = () => {
       .catch(err => console.error('Error fetching coupons:', err));
   }, []);
 
-  //function that handle the coupon that apply by the costumer
+  // Function to handle the coupon application
   const handleApplyCoupon = () => {
     const coupon = coupons.find(c => c.code === couponCode);
 
@@ -39,22 +38,35 @@ const Home = () => {
       usageCount: (coupon.usageCount || 0) + 1
     };
 
+    // Calculate the new price based on coupon type
+    let updatedPrice = 100; // Start with the base price
+
+    if (coupon.couponType === 'percentage') {
+      updatedPrice = updatedPrice - (updatedPrice * (coupon.discount / 100)); // Apply percentage discount
+    } else if (coupon.couponType === 'amount') {
+      updatedPrice = updatedPrice - coupon.discount; // Apply fixed amount discount
+    }
+
+    // Update the price and coupons
+    setCoupons(coupons.map(c => (c.id === coupon.id ? updatedCoupon : c)));
+    setNewPrice(updatedPrice);
+    setDiscountApplied(true);
+
+    // Update coupon usage in the database
     fetch(`${apiUrl}/coupons/${coupon.id}`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json','Cache-Control': 'no-cache', 'Pragma': 'no-cache' },
+      headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' },
       body: JSON.stringify(updatedCoupon),
     })
-      .then(() => {
-        setCoupons(coupons.map(c => (c.id === coupon.id ? updatedCoupon : c)));
-        setDiscountApplied(true);
-        alert('Coupon applied successfully!');
-        setTimeout(() => setDiscountApplied(false), 2000);
-      })
+      .then(() => alert('Coupon applied successfully!'))
       .catch(err => console.error('Error applying coupon:', err));
+
+    // Reset discount status after 2 seconds
+    setTimeout(() => setDiscountApplied(false), 2000);
   };
 
   const handleLogin = () => {
-    navigate('/login')
+    navigate('/login');
   };
 
   return (
@@ -72,6 +84,11 @@ const Home = () => {
       </button>
 
       {discountApplied && <p className="success-message">Discount Applied Successfully!</p>}
+
+      <div className="price-info">
+        <p>Original Price: 100 ₪</p>
+        <p>New Price: {newPrice} ₪</p>
+      </div>
 
       <button onClick={handleLogin} className="login-button">
         Login

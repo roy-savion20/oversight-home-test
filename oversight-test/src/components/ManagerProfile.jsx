@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { ManagerContext } from '../context/Managercontext';
+import { useNavigate } from 'react-router-dom'; // for navigation after logout
 
 const ManagerProfile = () => {
   const { currentManager, setCurrentManager } = useContext(ManagerContext);
@@ -10,14 +11,14 @@ const ManagerProfile = () => {
     code: '',
     description: '',
     discount: '',
-    couponType: 'percentage', // default type
+    couponType: 'percentage',
     expirationDate: '',
     allowMultipleUses: false,
     usageLimit: '',
   });
 
+  const navigate = useNavigate(); // For redirecting after logout
 
-  //fetch all the coupons
   useEffect(() => {
     fetch(`${apiUrl}/coupons`)
       .then((response) => response.json())
@@ -37,7 +38,6 @@ const ManagerProfile = () => {
     });
   };
 
-  //handle the otion to add new coupon
   const handleAddCoupon = () => {
     const currentDate = new Date().toISOString();
     const newCoupon = {
@@ -66,14 +66,13 @@ const ManagerProfile = () => {
       code: coupon.code,
       description: coupon.description,
       discount: coupon.discount,
-      couponType: coupon.couponType || 'percentage', // set default if missing
+      couponType: coupon.couponType || 'percentage',
       expirationDate: coupon.expirationDate || '',
       allowMultipleUses: coupon.allowMultipleUses || false,
       usageLimit: coupon.usageLimit || '',
     });
   };
 
-  //function that handle the update coupons
   const handleUpdateCoupon = () => {
     const updatedCoupon = { ...editingCoupon, ...formData };
     fetch(`${apiUrl}/coupons/${editingCoupon.id}`, {
@@ -92,20 +91,27 @@ const ManagerProfile = () => {
       .catch((err) => console.error('Error updating coupon:', err));
   };
 
-  //function that handle the delete coupons
   const handleDeleteCoupon = (id) => {
     fetch(`${apiUrl}/coupons/${id}`, { method: 'DELETE' })
       .then(() => setCoupons(coupons.filter((c) => c.id !== id)))
       .catch((err) => console.error('Error deleting coupon:', err));
   };
 
+  // Logout function
+  const handleLogout = () => {
+    sessionStorage.removeItem('currentManager');
+    setCurrentManager(null);
+    navigate('/login'); // Redirect to login page
+  };
+
   return (
     <div className="manager-profile">
+      <button onClick={handleLogout} className="logout-button">Logout</button>
       <h2 className="manager-email">{currentManager.email}'s Coupons</h2>
 
       <div className="coupon-list">
         {coupons.map((coupon) => {
-          if (coupon.managerId == currentManager.id) {
+          if (coupon.managerId === currentManager.id) {
             return (
               <div key={coupon.id} className="coupon-card">
                 <h3>{coupon.code}</h3>
@@ -114,8 +120,8 @@ const ManagerProfile = () => {
                 {coupon.expirationDate && <p>Expiration Date: {new Date(coupon.expirationDate).toLocaleDateString()}</p>}
                 {coupon.allowMultipleUses && <p>Allows Multiple Uses</p>}
                 {coupon.usageLimit && <p>Usage Limit: {coupon.usageLimit} times</p>}
-                <button onClick={() => handleEditCoupon(coupon)} className='edit-delete-button'>Edit</button>
-                <button onClick={() => handleDeleteCoupon(coupon.id)} className='edit-delete-button'>Delete</button>
+                <button onClick={() => handleEditCoupon(coupon)} className="edit-delete-button">Edit</button>
+                <button onClick={() => handleDeleteCoupon(coupon.id)} className="edit-delete-button">Delete</button>
               </div>
             );
           }

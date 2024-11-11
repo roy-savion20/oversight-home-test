@@ -148,6 +148,26 @@ body {
   }
 }
 
+.home .price-info {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.home .price-info p {
+  margin: 5px 0;
+}
+
+.home .success-message {
+  color: green;
+  font-weight: bold;
+}
+
+.home .apply-button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+
 
 /*
 login page style
@@ -375,6 +395,7 @@ admin page style
 .manager-profile {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 90px;
   padding: 20px;
   text-align: center;
   font-family: Arial, sans-serif;
@@ -434,4 +455,25 @@ button {
 
 button:hover {
   background-color: #45a049;
+}
+
+.logout-button {
+  background-color: #ff4747;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #ff1f1f;
+  transform: scale(1.1); /* Cool hover animation */
+}
+
+.logout-button:focus {
+  outline: none;
 }

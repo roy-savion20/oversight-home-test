@@ -27,31 +27,6 @@
       "usageCount": 3
     },
     {
-      "id": "1731228588864",
-      "code": "OVERSIGHT!%",
-      "description": "15₪ discount",
-      "discount": "15",
-      "couponType": "amount",
-      "expirationDate": "",
-      "allowMultipleUses": false,
-      "usageLimit": "",
-      "managerId": "36e5",
-      "createdAt": "2024-11-10T08:49:48.864Z"
-    },
-    {
-      "id": "1731228659408",
-      "code": "RSAVION20",
-      "description": "20% discount",
-      "discount": "20",
-      "couponType": "percentage",
-      "expirationDate": "2024-11-28",
-      "allowMultipleUses": true,
-      "usageLimit": "4",
-      "managerId": "fb96",
-      "createdAt": "2024-11-10T08:50:59.408Z",
-      "usageCount": 4
-    },
-    {
       "id": "1731228682717",
       "code": "RSAVION11",
       "description": "11₪ discount",
@@ -75,18 +50,6 @@
       "usageLimit": "1",
       "managerId": "fb96",
       "createdAt": "2024-11-11T22:16:58.649Z"
-    },
-    {
-      "id": 1731363643933,
-      "code": "ROY20",
-      "description": "discount 20",
-      "discount": "20",
-      "couponType": "amount",
-      "expirationDate": "2024-12-12",
-      "allowMultipleUses": true,
-      "usageLimit": "3",
-      "managerId": "fb96",
-      "createdAt": "2024-11-11T22:20:43.933Z"
     },
     {
       "id": 1731364031617,
