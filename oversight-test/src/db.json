@@ -1,0 +1,84 @@
+{
+  "coupons": [
+    {
+      "id": "1731228410593",
+      "code": "SUMMERSALE15",
+      "description": "summer sale ",
+      "discount": "15",
+      "couponType": "percentage",
+      "expirationDate": "",
+      "allowMultipleUses": false,
+      "usageLimit": "1",
+      "managerId": "fb96",
+      "createdAt": "2024-11-10T08:46:50.593Z"
+    },
+    {
+      "id": "1731228557658",
+      "code": "OVERSIGHT30",
+      "description": "30% coupon",
+      "discount": "30",
+      "couponType": "percentage",
+      "expirationDate": "2024-11-30",
+      "allowMultipleUses": true,
+      "usageLimit": "3",
+      "managerId": "36e5",
+      "createdAt": "2024-11-10T08:49:17.658Z",
+      "usageCount": 3
+    },
+    {
+      "id": "1731228588864",
+      "code": "OVERSIGHT!%",
+      "description": "15₪ discount",
+      "discount": "15",
+      "couponType": "amount",
+      "expirationDate": "",
+      "allowMultipleUses": false,
+      "usageLimit": "",
+      "managerId": "36e5",
+      "createdAt": "2024-11-10T08:49:48.864Z"
+    },
+    {
+      "id": "1731228659408",
+      "code": "RSAVION20",
+      "description": "20% discount",
+      "discount": "20",
+      "couponType": "percentage",
+      "expirationDate": "2024-11-28",
+      "allowMultipleUses": true,
+      "usageLimit": "4",
+      "managerId": "fb96",
+      "createdAt": "2024-11-10T08:50:59.408Z",
+      "usageCount": 4
+    },
+    {
+      "id": "1731228682717",
+      "code": "RSAVION11",
+      "description": "11₪ discount",
+      "discount": "11",
+      "couponType": "amount",
+      "expirationDate": "",
+      "allowMultipleUses": false,
+      "usageLimit": "1",
+      "managerId": "fb96",
+      "createdAt": "2024-11-10T08:51:22.717Z",
+      "usageCount": 1
+    }
+  ],
+  "users": [
+    {
+      "id": "fb96",
+      "email": "rsavion@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "1ba5",
+      "email": "admin@gmail.com",
+      "password": "admin1234admin"
+    },
+    {
+      "id": "36e5",
+      "email": "oversight@gmail.com",
+      "password": "123456789"
+    }
+  ]
+}

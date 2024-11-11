@@ -1,0 +1,437 @@
+/* Reset and Basic Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Title Styling */
+.title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Input Styling */
+.coupon-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  margin-bottom: 15px;
+}
+
+.coupon-input:focus {
+  border-color: #4caf50;
+}
+
+/* Apply Coupon Button Styling */
+.apply-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.apply-button:hover {
+  background-color: #43a047;
+  transform: scale(1.05);
+}
+
+.apply-button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+/* Login Button Styling */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #1e88e5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.login-button:hover {
+  background-color: #1976d2;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:active {
+  transform: translateY(0px);
+  box-shadow: none;
+}
+
+/* Success Message */
+.success-message {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #4caf50;
+  opacity: 0;
+  animation: fadeInUp 0.4s ease-in-out forwards;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Fade In Up Animation for Success Message */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .home {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .apply-button,
+  .coupon-input,
+  .login-button {
+    font-size: 0.9rem;
+  }
+}
+
+
+/*
+login page style
+*/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Form styles */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+label {
+  text-align: left;
+  margin: 0.5rem 0 0.2rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.input-error {
+  border-color: #ff6b6b;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.login-button-loginform {
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.login-button-loginform:hover {
+  background-color: #45a049;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .login-container {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  input {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .login-button {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+}
+
+
+/*
+admin page style
+*/
+
+.admin-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 600px;
+  margin: 40px auto;
+  background: #f4f4f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.admin-container.logout {
+  transform: scale(0.98);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header h2 {
+  color: #333;
+}
+
+.logout-btn {
+  background-color: #ff4f4f;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #ff3b3b;
+}
+
+.admin-form {
+  margin-top: 30px;
+}
+
+.admin-form h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.submit-btn {
+  background-color: #29b94b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  font-size: 16px;
+}
+
+.submit-btn:hover {
+  background-color: #1a8c3f;
+}
+
+.error-msg {
+  color: red;
+  margin-top: 10px;
+}
+
+.user-list {
+  margin-top: 30px;
+}
+
+.user-list h3 {
+  color: #333;
+}
+
+.user-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.user-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+  color: #444;
+}
+
+.user-list li:last-child {
+  border-bottom: none;
+}
+
+
+/* ManagerProfile.css */
+.manager-profile {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.coupon-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.edit-delete-button{
+  margin-inline: 4px;
+}
+
+.coupon-card {
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+  transition: transform 0.3s;
+}
+
+.coupon-card:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.coupon-form {
+  margin-top: 20px;
+}
+
+.coupon-form input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
