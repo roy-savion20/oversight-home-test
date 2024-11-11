@@ -87,6 +87,18 @@
       "usageLimit": "3",
       "managerId": "fb96",
       "createdAt": "2024-11-11T22:20:43.933Z"
+    },
+    {
+      "id": 1731364031617,
+      "code": "SAVION11",
+      "description": "discount 11",
+      "discount": "11",
+      "couponType": "percentage",
+      "expirationDate": "2024-10-10",
+      "allowMultipleUses": true,
+      "usageLimit": "10",
+      "managerId": "fb96",
+      "createdAt": "2024-11-11T22:27:11.617Z"
     }
   ],
   "users": [
