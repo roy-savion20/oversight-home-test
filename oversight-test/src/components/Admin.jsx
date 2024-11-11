@@ -14,11 +14,12 @@ const Admin = () => {
   const [filteredCoupons, setFilteredCoupons] = useState([]);
   const [filterByUser, setFilterByUser] = useState('');
   const [dateRange, setDateRange] = useState({ start: '', end: '' });
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   //fetch all the users
   const fetchUsers = async () => {
     try {
-      const response = await fetch('http://localhost:3001/users');
+      const response = await fetch(`${apiUrl}/users`);
       if (!response.ok) {
         throw new Error('Failed to fetch users');
       }
@@ -43,7 +44,7 @@ const Admin = () => {
 
   useEffect(() => {
     // fetch all coupons on component mount
-    fetch('http://localhost:3001/coupons')
+    fetch(`${apiUrl}/coupons`)
       .then((response) => response.json())
       .then((data) => setCoupons(data))
       .catch((err) => console.error('Error fetching coupons:', err));
@@ -86,7 +87,7 @@ const Admin = () => {
     setError('');
 
     // call the fake api
-    fetch('http://localhost:3001/users', {
+    fetch(`${apiUrl}/users`, {
       method: 'POST',
       body: JSON.stringify({
         email,

@@ -5,6 +5,7 @@ const ManagerProfile = () => {
   const { currentManager, setCurrentManager } = useContext(ManagerContext);
   const [coupons, setCoupons] = useState([]);
   const [editingCoupon, setEditingCoupon] = useState(null);
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [formData, setFormData] = useState({
     code: '',
     description: '',
@@ -18,7 +19,7 @@ const ManagerProfile = () => {
 
   //fetch all the coupons
   useEffect(() => {
-    fetch('http://localhost:3001/coupons')
+    fetch(`${apiUrl}/coupons`)
       .then((response) => response.json())
       .then((data) => setCoupons(data))
       .catch((err) => console.error('Error fetching coupons:', err));
@@ -46,7 +47,7 @@ const ManagerProfile = () => {
       createdAt: currentDate,
     };
 
-    fetch('http://localhost:3001/coupons', {
+    fetch(`${apiUrl}/coupons`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newCoupon),
@@ -75,7 +76,7 @@ const ManagerProfile = () => {
   //function that handle the update coupons
   const handleUpdateCoupon = () => {
     const updatedCoupon = { ...editingCoupon, ...formData };
-    fetch(`http://localhost:3001/coupons/${editingCoupon.id}`, {
+    fetch(`${apiUrl}/coupons/${editingCoupon.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedCoupon),
@@ -93,7 +94,7 @@ const ManagerProfile = () => {
 
   //function that handle the delete coupons
   const handleDeleteCoupon = (id) => {
-    fetch(`http://localhost:3001/coupons/${id}`, { method: 'DELETE' })
+    fetch(`${apiUrl}/coupons/${id}`, { method: 'DELETE' })
       .then(() => setCoupons(coupons.filter((c) => c.id !== id)))
       .catch((err) => console.error('Error deleting coupon:', err));
   };

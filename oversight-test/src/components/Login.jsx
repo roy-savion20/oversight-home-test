@@ -8,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [User,setUser] = useState({})
   const { setCurrentManager } = useContext(ManagerContext)
-
+  const apiUrl = import.meta.env.VITE_API_URL;
   // formik setup
   const formik = useFormik({
     initialValues: {
@@ -35,7 +35,7 @@ const Login = () => {
       setError(''); // clear any previous errors
 
       // call the fake API to check if the user exists
-      fetch('http://localhost:3001/users')
+      fetch(`${apiUrl}/users`)
         .then((response) => response.json())
         .then((users) => {
           // find the user matching the email and password
