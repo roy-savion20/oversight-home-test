@@ -63,6 +63,18 @@
       "managerId": "fb96",
       "createdAt": "2024-11-10T08:51:22.717Z",
       "usageCount": 1
+    },
+    {
+      "id": 1731363418649,
+      "code": "NEWROY15",
+      "description": "new coupon",
+      "discount": "15",
+      "couponType": "percentage",
+      "expirationDate": "2024-11-11",
+      "allowMultipleUses": false,
+      "usageLimit": "1",
+      "managerId": "fb96",
+      "createdAt": "2024-11-11T22:16:58.649Z"
     }
   ],
   "users": [
