@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  console.log(apiUrl);
+
   const [coupons, setCoupons] = useState([]);
   const [couponCode, setCouponCode] = useState('');
   const [discountApplied, setDiscountApplied] = useState(false);
@@ -9,7 +14,7 @@ const Home = () => {
 
   //fetch all the coupons
   useEffect(() => {
-    fetch('http://localhost:3001/coupons')
+    fetch(`${apiUrl}/coupons`)
       .then(response => response.json())
       .then(data => setCoupons(data))
       .catch(err => console.error('Error fetching coupons:', err));
@@ -34,7 +39,7 @@ const Home = () => {
       usageCount: (coupon.usageCount || 0) + 1
     };
 
-    fetch(`http://localhost:3001/coupons/${coupon.id}`, {
+    fetch(`${apiUrl}/coupons/${coupon.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedCoupon),
