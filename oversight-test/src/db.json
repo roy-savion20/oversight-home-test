@@ -75,6 +75,18 @@
       "usageLimit": "1",
       "managerId": "fb96",
       "createdAt": "2024-11-11T22:16:58.649Z"
+    },
+    {
+      "id": 1731363643933,
+      "code": "ROY20",
+      "description": "discount 20",
+      "discount": "20",
+      "couponType": "amount",
+      "expirationDate": "2024-12-12",
+      "allowMultipleUses": true,
+      "usageLimit": "3",
+      "managerId": "fb96",
+      "createdAt": "2024-11-11T22:20:43.933Z"
     }
   ],
   "users": [
