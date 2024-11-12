@@ -390,6 +390,13 @@ admin page style
   border-bottom: none;
 }
 
+@media (max-width: 600px) {
+  .admin-container {
+    padding: 10px;
+    margin-top: 100px;
+  }
+}
+
 
 /* ManagerProfile.css */
 .manager-profile {
