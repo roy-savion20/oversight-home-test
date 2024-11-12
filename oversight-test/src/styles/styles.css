@@ -393,12 +393,14 @@ admin page style
 
 /* ManagerProfile.css */
 .manager-profile {
+  height: 100%;
   max-width: 800px;
   margin: 0 auto;
   margin-top: 90px;
   padding: 20px;
   text-align: center;
   font-family: Arial, sans-serif;
+
 }
 
 .coupon-list {
@@ -406,6 +408,7 @@ admin page style
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  
 }
 .edit-delete-button{
   margin-inline: 4px;
@@ -476,4 +479,10 @@ button:hover {
 
 .logout-button:focus {
   outline: none;
+}
+@media (max-width: 600px){
+  .manager-profile{
+    margin-top: 100px;
+    height: 1000px;
+  }
 }
