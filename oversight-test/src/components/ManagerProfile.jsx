@@ -101,7 +101,7 @@ const ManagerProfile = () => {
   const handleLogout = () => {
     sessionStorage.removeItem('currentManager');
     setCurrentManager(null);
-    navigate('/login'); // Redirect to login page
+    navigate('/'); // Redirect to login page
   };
 
   return (
